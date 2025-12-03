@@ -1,2 +1,5 @@
-# all files inside the .github directory are owned by LungaFermata, and require review by this user before they can be changed
+# global owner of files in the directory, means any change requires review by this user, later lines overwrite this permission for specific files rather than appending
+* @LungaFermata
+
+# all files inside the .github/workflows directory are owned by LungaFermata, and require review by this user before they can be changed (only applies if they have write permision in the repository)
 .github/workflows/ @LungaFermata
