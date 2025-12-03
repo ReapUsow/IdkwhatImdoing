@@ -35,7 +35,7 @@ jobs:
             name: ${{ matrix.compiler }}_hello_world
             path: hello_world.exe
             retention-days: 1
-            
+
   deploy_dev:
     runs-on: ubuntu-latest
     needs: [build]
@@ -47,4 +47,5 @@ jobs:
           name: clang_hello_world
 
       - name: Run executable
-        run: ./hello_world.exe
+        run: chmod +x hello_world.exe
+             ./hello_world.exe
