@@ -14,7 +14,9 @@ on:
     tags: # or with a commit tagged "test" 
       - test
     paths: # or that changes a file that ends in ".test"
-      - '**.test'
+      - "**.test"
+  
+  # or when a pull request is made to the main branch
   pull_request:
     branches: [ "main" ]
 
