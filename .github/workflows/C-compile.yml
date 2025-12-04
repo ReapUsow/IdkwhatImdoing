@@ -10,9 +10,12 @@ jobs:
 
       - name: Run tests
         run: |
+        sudo apt-get install -y gcc
+        gcc -o hello_world.exe hello.c
           if ./hello_world.exe; then
             echo "Test Passed"
           else
             echo "Test Failed"
             exit 1
           fi
+      
