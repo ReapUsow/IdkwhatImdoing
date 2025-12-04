@@ -18,10 +18,9 @@ jobs:
         python-version: "3.10"
         
     - name: Run python file
-      # 2. CORRECTLY DEFINING AN ENVIRONMENT VARIABLE FOR THE STEP
+      
       env:
         GREET_NAME: ${{ github.event.inputs.greeting_name }} # 👈 Correctly reference the input
       run: |
-        # 3. USE THE ENVIRONMENT VARIABLE IN THE COMMAND
         python3 hello.py "${{ env.GREET_NAME }}
 
