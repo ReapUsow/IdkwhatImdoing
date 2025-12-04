@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         compiler: [gcc, clang]
-    runs-on: ubuntu.latest
+    runs-on: ubuntu-latest
 
         
     steps:
@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Set up compiler
-        run: sudo apt-get install -y 
+        run: sudo apt-get update && sudo apt-get install -y ${{ matrix.compiler }}
 
       - name: Compile C program
-        run: gcc -o hello_world.exe hello.c
+        run: ${{ matrix.compiler }} -o hello_world.exe hello.c
 
       - name: Run tests
         run: |
