@@ -4,8 +4,11 @@ on: workflow_dispatch
 
 jobs:
   build:
+  
     strategy:
       matrix:
+        version: [3.11, 3.12
+        os: [ubuntu-latest]
         compiler: [gcc, clang]
     runs-on: ${{ matrix.compiler }}
 
