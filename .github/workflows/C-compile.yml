@@ -15,7 +15,7 @@ jobs:
         run: sudo apt-get install -y 
 
       - name: Compile C program
-        run: ${{ matrix.compiler }} -o hello_world.exe hello.c
+        run: gcc -o hello_world.exe hello.c
 
       - name: Run tests
         run: |
