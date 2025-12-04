@@ -4,14 +4,12 @@ on: workflow_dispatch
 
 jobs:
   build:
-  
     strategy:
       matrix:
-        version: [3.11, 3.12]
-        os: [ubuntu-latest]
         compiler: [gcc, clang]
-    runs-on: ${{ matrix.compiler }}
+    runs-on: ubuntu.latest
 
+        
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
