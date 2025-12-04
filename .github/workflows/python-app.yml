@@ -24,8 +24,7 @@ inputs:
   name:
     required: true
     type: string
-
-- name: Run python file 
-  env:
-    name: $Python
+  name: Run python file 
+    env:
+      name: $Python
 
