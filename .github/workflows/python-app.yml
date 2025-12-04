@@ -20,3 +20,10 @@ jobs:
     - name: Run python file
       run: |
         python3 hello.py "World"
+inputs:
+  name:
+    required: true
+    type: string
+- name: Run python file
+  env:
+    name: ${{ inputs.name }}
