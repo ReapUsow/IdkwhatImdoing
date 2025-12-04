@@ -1,26 +1,33 @@
-name: run-python-application
+name: Run Python Application
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs: # 👈 1. Inputs must be nested under workflow_dispatch
+      name:
+        description: 'The string to be processed by hello.py'
+        required: true
+        type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: read 
+      contents: read # access to check out code and install dependencies
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Set up Python 3.10
-      uses: actions/setup-python@v6
-      with:
+      uses: actions/setup-python@v6 # 👈 2. 'uses' is nested under the step
+      with: # 👈 3. 'with' is nested under the step
         python-version: "3.10"
         
-    - name: Run python file
-      
+    - name: Run python file 
+      # 4. Define 'env' directly under the step
       env:
-        GREET_NAME: ${{ github.event.inputs.greeting_name }} # 👈 Correctly reference the input
+        # 5. Use a descriptive ENV variable name (e.g., INPUT_NAME) and reference the input context correctly
+        INPUT_NAME: ${{ github.event.inputs.name }}
       run: |
-        python3 hello.py "${{ env.GREET_NAME }}
-
+        # Use the environment variable, quoted to prevent shell splitting (sanitization)
+        python3 hello.py "${{ env.INPUT_NAME }}"
