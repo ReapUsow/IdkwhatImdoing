@@ -24,7 +24,8 @@ inputs:
   name:
     required: true
     type: string
-  - name: Run python file 
+
+- name: Run python file 
   env:
     name: ${{ inputs.name }}
 
